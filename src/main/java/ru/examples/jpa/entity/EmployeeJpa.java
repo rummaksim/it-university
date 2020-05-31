@@ -32,4 +32,11 @@ public class EmployeeJpa {
     @ManyToOne
     @JoinColumn(name="company", referencedColumnName = "id", nullable = false)
     private CompanyJpa company;
+
+    public EmployeeJpa(String name, Date dateStart, Date dateDismissal, CompanyJpa company) {
+        this.name = name;
+        this.dateStart = dateStart;
+        this.dateDismissal = dateDismissal;
+        this.company = company;
+    }
 }

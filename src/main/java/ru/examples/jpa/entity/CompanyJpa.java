@@ -1,5 +1,6 @@
 package ru.examples.jpa.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -24,4 +25,15 @@ public class CompanyJpa {
 
     @Column(name="address", nullable = false)
     private String address;
+
+    public CompanyJpa(String name, String address){
+        this.name = name;
+        this.address = address;
+    }
+
+    public CompanyJpa (long id) {
+        this.id = id;
+        this.name = null;
+        this.address = null;
+    }
 }

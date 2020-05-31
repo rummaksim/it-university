@@ -18,6 +18,9 @@ public interface EmployeeJpaRepository extends JpaRepository<EmployeeJpa, Long> 
 
     List<EmployeeJpa> findAllByCompanyName(String companyName);
 
+    @Query(value="SELECT MAX(id) FROM employee", nativeQuery = true)
+    Long getMaxEmployeeId();
+
 
 
 

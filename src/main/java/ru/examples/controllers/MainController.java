@@ -40,7 +40,7 @@ public class MainController {
     }
 
     @GetMapping("jpa/companies/company")
-    public CompanyJpa findCompanyByName(){
+    public List<CompanyJpa> findCompanyByName(){
         return companyJpaRepository.findByName("Компания_2");
     }
 
