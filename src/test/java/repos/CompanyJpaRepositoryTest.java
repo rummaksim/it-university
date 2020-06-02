@@ -1,3 +1,6 @@
+package repos;
+
+import config.TestConfig;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;

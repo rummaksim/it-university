@@ -1,3 +1,6 @@
+package repos;
+
+import config.TestConfig;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -11,9 +14,7 @@ import ru.examples.jpa.entity.CompanyJpa;
 import ru.examples.jpa.entity.EmployeeJpa;
 import ru.examples.jpa.repos.EmployeeJpaRepository;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
@@ -28,7 +29,7 @@ public class EmployeeJpaRepositoryTest {
     @Before
     public void createEmployeeTest() {
 
-        CompanyJpa companyJpa = new CompanyJpa(2);
+        CompanyJpa companyJpa = new CompanyJpa(2L);
         EmployeeJpa employeeJpa = new EmployeeJpa("ФИО_8_test", new GregorianCalendar(2018, Calendar.JANUARY, 11).getTime(),
                 new GregorianCalendar(2019, Calendar.DECEMBER, 31).getTime(), companyJpa);
         employeeJpaRepository.save(employeeJpa);
@@ -51,7 +52,7 @@ public class EmployeeJpaRepositoryTest {
     public void findEmployeesByCompanyNameTest(){
         List<EmployeeJpa> employees = employeeJpaRepository.findAllByCompanyName("Компания_2_test");
         Assert.assertNotNull(employees);
-        Assert.assertEquals(employees.size(), 2);
+        Assert.assertEquals(employees.size(), 1);
     }
 
     @After
