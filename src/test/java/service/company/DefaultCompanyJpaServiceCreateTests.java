@@ -8,18 +8,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
-import ru.examples.exseptions.EntityAlreadyExistsException;
-import ru.examples.exseptions.EntityIllegalArgumentException;
+import ru.examples.exceptions.EntityAlreadyExistsException;
+import ru.examples.exceptions.EntityIllegalArgumentException;
 import ru.examples.jpa.entity.CompanyJpa;
-import ru.examples.service.CompanyService;
+import ru.examples.service.impl.DefaultCompanyService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @ContextConfiguration(classes = {TestConfig.class})
-public class CompanyJpaServiceCreateTests {
+public class DefaultCompanyJpaServiceCreateTests {
 
     @Autowired
-    private CompanyService companyService;
+    private DefaultCompanyService companyService;
 
     @Test
     public void createCompanyTest(){

@@ -8,21 +8,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
-import ru.examples.exseptions.EntityHasDetailsException;
-import ru.examples.exseptions.EntityIllegalArgumentException;
-import ru.examples.exseptions.EntityNotFoundException;
+import ru.examples.exceptions.EntityHasDetailsException;
+import ru.examples.exceptions.EntityIllegalArgumentException;
+import ru.examples.exceptions.EntityNotFoundException;
 import ru.examples.jpa.entity.CompanyJpa;
-import ru.examples.service.CompanyService;
+import ru.examples.service.impl.DefaultCompanyService;
 
 import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @ContextConfiguration(classes = {TestConfig.class})
-public class CompanyJpaServiceDeleteTests {
+public class DefaultCompanyJpaServiceDeleteTests {
 
     @Autowired
-    private CompanyService companyService;
+    private DefaultCompanyService companyService;
 
     @Test
     public void deleteCompanyTest(){

@@ -1,4 +1,4 @@
-package ru.examples.exseptions;
+package ru.examples.exceptions;
 
 /**
  * Исключение выбрасывается в случае конфликтов с существующими данными

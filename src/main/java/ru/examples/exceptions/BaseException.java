@@ -1,8 +1,8 @@
-package ru.examples.exseptions;
+package ru.examples.exceptions;
 
 public class BaseException extends RuntimeException {
 
     public BaseException(String message){
-        super();
+        super(message);
     }
 }

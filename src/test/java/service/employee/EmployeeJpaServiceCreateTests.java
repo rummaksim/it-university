@@ -8,12 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
-import ru.examples.exseptions.EntityAlreadyExistsException;
-import ru.examples.exseptions.EntityIllegalArgumentException;
-import ru.examples.exseptions.EntityNotFoundException;
+import ru.examples.exceptions.EntityAlreadyExistsException;
+import ru.examples.exceptions.EntityIllegalArgumentException;
+import ru.examples.exceptions.EntityNotFoundException;
 import ru.examples.jpa.entity.CompanyJpa;
 import ru.examples.jpa.entity.EmployeeJpa;
-import ru.examples.service.EmployeeService;
+import ru.examples.service.impl.DefaultEmployeeService;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -24,11 +24,11 @@ import java.util.GregorianCalendar;
 public class EmployeeJpaServiceCreateTests {
 
     @Autowired
-    private EmployeeService employeeService;
+    private DefaultEmployeeService defaultEmployeeService;
 
     @Test(expected = EntityIllegalArgumentException.class)
     public void createNullCompanyTest(){
-        employeeService.create(null);
+        defaultEmployeeService.create(null);
     }
 
     @Test(expected = EntityIllegalArgumentException.class)
@@ -37,7 +37,7 @@ public class EmployeeJpaServiceCreateTests {
         EmployeeJpa employee = new EmployeeJpa(null, "ФИО_new",
                 new GregorianCalendar(2018, Calendar.JANUARY, 11).getTime(),
                 new GregorianCalendar(2019, Calendar.DECEMBER, 31).getTime(), company);
-        employeeService.create(employee);
+        defaultEmployeeService.create(employee);
     }
 
     @Test(expected = EntityIllegalArgumentException.class)
@@ -45,14 +45,14 @@ public class EmployeeJpaServiceCreateTests {
         CompanyJpa company = new CompanyJpa(2L);
         EmployeeJpa employee = new EmployeeJpa(8L, "ФИО_new", null,
                 new GregorianCalendar(2019, Calendar.DECEMBER, 31).getTime(), company);
-        employeeService.create(employee);
+        defaultEmployeeService.create(employee);
     }
 
     @Test(expected = EntityIllegalArgumentException.class)
     public void createEmployeeWithNullCompanyTest(){
         EmployeeJpa employee = new EmployeeJpa(8L, "ФИО_new",
                 new GregorianCalendar(2019, Calendar.DECEMBER, 31).getTime(), null, null);
-        employeeService.create(employee);
+        defaultEmployeeService.create(employee);
     }
 
     @Test(expected = EntityIllegalArgumentException.class)
@@ -61,7 +61,7 @@ public class EmployeeJpaServiceCreateTests {
         EmployeeJpa employee = new EmployeeJpa(8L, "ФИО_new",
                 new GregorianCalendar(2019, Calendar.DECEMBER, 31).getTime(),
                 null, company);
-        employeeService.create(employee);
+        defaultEmployeeService.create(employee);
     }
 
     @Test(expected = EntityNotFoundException.class)
@@ -70,7 +70,7 @@ public class EmployeeJpaServiceCreateTests {
         EmployeeJpa employee = new EmployeeJpa(8L, "ФИО_new",
                 new GregorianCalendar(2019, Calendar.DECEMBER, 31).getTime(),
                 null, company);
-        employeeService.create(employee);
+        defaultEmployeeService.create(employee);
     }
 
     @Test(expected = EntityAlreadyExistsException.class)
@@ -79,7 +79,7 @@ public class EmployeeJpaServiceCreateTests {
         EmployeeJpa employee = new EmployeeJpa(7L, "ФИО_new",
                 new GregorianCalendar(2019, Calendar.DECEMBER, 31).getTime(),
                 null, company);
-        employeeService.create(employee);
+        defaultEmployeeService.create(employee);
     }
 
     @Test
@@ -88,7 +88,7 @@ public class EmployeeJpaServiceCreateTests {
         EmployeeJpa employee = new EmployeeJpa(8L, "ФИО_new",
                 new GregorianCalendar(2019, Calendar.DECEMBER, 31).getTime(),
                 null, company);
-        EmployeeJpa createdEmployee = employeeService.create(employee);
+        EmployeeJpa createdEmployee = defaultEmployeeService.create(employee);
         Assert.assertNotNull(createdEmployee);
     }
 }

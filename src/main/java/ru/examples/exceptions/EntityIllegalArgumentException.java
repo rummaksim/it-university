@@ -1,7 +1,5 @@
-package ru.examples.exseptions;
+package ru.examples.exceptions;
 
-
-import org.springframework.util.Assert;
 
 /**
  * Исключение выбрасывается при вызове метода с некорректными параметрами

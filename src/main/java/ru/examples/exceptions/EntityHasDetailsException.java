@@ -1,4 +1,4 @@
-package ru.examples.exseptions;
+package ru.examples.exceptions;
 
 import org.springframework.util.Assert;
 

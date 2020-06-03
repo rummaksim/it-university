@@ -9,10 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
-import ru.examples.exseptions.EntityIllegalArgumentException;
-import ru.examples.exseptions.EntityNotFoundException;
+import ru.examples.exceptions.EntityIllegalArgumentException;
+import ru.examples.exceptions.EntityNotFoundException;
 import ru.examples.jpa.entity.EmployeeJpa;
-import ru.examples.service.EmployeeService;
+import ru.examples.service.impl.DefaultEmployeeService;
 
 import java.util.List;
 
@@ -22,27 +22,27 @@ import java.util.List;
 public class EmployeeJpaServiceDeleteTests {
 
     @Autowired
-    private EmployeeService employeeService;
+    private DefaultEmployeeService defaultEmployeeService;
 
     @Test(expected = EntityIllegalArgumentException.class)
     public void deleteEmployeeByNullId(){
-        employeeService.delete(null);
+        defaultEmployeeService.delete(null);
     }
 
     @Test(expected = EntityIllegalArgumentException.class)
     public void deleteEmployeeByIllegalTypeId(){
-        employeeService.delete("id_1");
+        defaultEmployeeService.delete("id_1");
     }
 
     @Test (expected = EntityNotFoundException.class)
     public void deleteNonexistentEmployeeTest(){
-        employeeService.delete(10);
+        defaultEmployeeService.delete(10);
     }
 
     @Test
     public void deleteEmployeeTest(){
-        employeeService.delete(7);
-        List<EmployeeJpa> employees = employeeService.findAll();
+        defaultEmployeeService.delete(7);
+        List<EmployeeJpa> employees = defaultEmployeeService.findAll();
         Assert.assertNotNull(employees);
         Assert.assertEquals(employees.size(), 6);
     }
