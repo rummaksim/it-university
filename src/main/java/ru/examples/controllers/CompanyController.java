@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import ru.examples.jpa.entity.CompanyJpa;
-import ru.examples.service.CompanyService;
+import ru.examples.service.ICompanyService;
 
 import java.util.List;
 
@@ -12,10 +12,10 @@ import java.util.List;
 @RequestMapping("api/v1/companies")
 public class CompanyController {
 
-    private final CompanyService companyService;
+    private final ICompanyService companyService;
 
     @Autowired
-    public CompanyController(CompanyService companyService) {
+    public CompanyController(ICompanyService companyService) {
         this.companyService = companyService;
     }
 

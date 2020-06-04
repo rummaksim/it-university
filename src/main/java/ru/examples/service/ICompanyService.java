@@ -4,7 +4,7 @@ import ru.examples.jpa.entity.CompanyJpa;
 
 import java.util.List;
 
-public interface CompanyService {
+public interface ICompanyService {
 
     List<CompanyJpa> findAll();
 

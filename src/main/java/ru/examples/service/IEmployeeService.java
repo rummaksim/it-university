@@ -5,7 +5,7 @@ import ru.examples.jpa.entity.EmployeeJpa;
 
 import java.util.List;
 
-public interface EmployeeService {
+public interface IEmployeeService {
 
     List<EmployeeJpa> findAll();
 

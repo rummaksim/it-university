@@ -7,13 +7,13 @@ import ru.examples.exceptions.EntityIllegalArgumentException;
 import ru.examples.exceptions.EntityNotFoundException;
 import ru.examples.jpa.entity.EmployeeJpa;
 import ru.examples.jpa.repos.EmployeeJpaRepository;
-import ru.examples.service.EmployeeService;
+import ru.examples.service.IEmployeeService;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class DefaultEmployeeService implements EmployeeService {
+public class DefaultEmployeeService implements IEmployeeService {
 
     private final EmployeeJpaRepository employeeJpaRepository;
 

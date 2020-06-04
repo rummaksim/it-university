@@ -2,13 +2,13 @@ package service.mock;
 
 import org.springframework.stereotype.Service;
 import ru.examples.jpa.entity.CompanyJpa;
-import ru.examples.service.CompanyService;
+import ru.examples.service.ICompanyService;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class MockCompanyJpaService implements CompanyService {
+public class MockCompanyJpaService implements ICompanyService {
 
     @Override
     public List<CompanyJpa> findAll() {

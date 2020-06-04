@@ -10,13 +10,13 @@ import ru.examples.jpa.entity.CompanyJpa;
 import ru.examples.jpa.entity.EmployeeJpa;
 import ru.examples.jpa.repos.CompanyJpaRepository;
 import ru.examples.jpa.repos.EmployeeJpaRepository;
-import ru.examples.service.CompanyService;
+import ru.examples.service.ICompanyService;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class DefaultCompanyService implements CompanyService {
+public class DefaultCompanyService implements ICompanyService {
 
     private final CompanyJpaRepository companyJpaRepository;
 

@@ -1,4 +1,4 @@
-package ru.examples.controllers;
+package ru.examples.controllers.response.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
