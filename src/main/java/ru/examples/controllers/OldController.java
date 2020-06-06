@@ -16,7 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/v1")
-public class MainController {
+public class OldController {
 
     private final CompanyJpaRepository companyJpaRepository;
 
@@ -27,7 +27,7 @@ public class MainController {
     private final EmployeeJdbcRepository employeeJdbcRepository;
 
     @Autowired
-    public MainController(CompanyJpaRepository companyJpaRepository, EmployeeJpaRepository employeeJpaRepository, CompanyJdbcRepository companyJdbcRepository, EmployeeJdbcRepository employeeJdbcRepository) {
+    public OldController(CompanyJpaRepository companyJpaRepository, EmployeeJpaRepository employeeJpaRepository, CompanyJdbcRepository companyJdbcRepository, EmployeeJdbcRepository employeeJdbcRepository) {
         this.companyJpaRepository = companyJpaRepository;
         this.employeeJpaRepository = employeeJpaRepository;
         this.companyJdbcRepository = companyJdbcRepository;
@@ -40,7 +40,7 @@ public class MainController {
     }
 
     @GetMapping("jpa/companies/company")
-    public CompanyJpa findCompanyByName(){
+    public List<CompanyJpa> findCompanyByName(){
         return companyJpaRepository.findByName("Компания_2");
     }
 
