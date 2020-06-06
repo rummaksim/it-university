@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import ru.examples.jpa.entity.EmployeeJpa;
-import ru.examples.service.IEmployeeService;
+import ru.examples.service.IEntityService;
 
 import java.util.List;
 
@@ -12,10 +12,10 @@ import java.util.List;
 @RequestMapping("api/v1/employees")
 public class EmployeeController {
 
-    private final IEmployeeService employeeService;
+    private final IEntityService<EmployeeJpa> employeeService;
 
     @Autowired
-    public EmployeeController(IEmployeeService employeeService) {
+    public EmployeeController(IEntityService<EmployeeJpa> employeeService) {
         this.employeeService = employeeService;
     }
 

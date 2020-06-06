@@ -3,7 +3,7 @@ package service.mock;
 import org.springframework.stereotype.Service;
 import ru.examples.jpa.entity.CompanyJpa;
 import ru.examples.jpa.entity.EmployeeJpa;
-import ru.examples.service.IEmployeeService;
+import ru.examples.service.IEntityService;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -11,7 +11,7 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 @Service
-public class MockEmployeeJpaService implements IEmployeeService {
+public class MockEmployeeJpaService implements IEntityService<EmployeeJpa> {
     @Override
     public List<EmployeeJpa> findAll() {
         return new ArrayList<>();

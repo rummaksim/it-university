@@ -30,7 +30,7 @@ public class CompanyControllerTest {
 
     private final static String URL = "http://localhost:8080/api/v1/companies";
 
-    ObjectMapper objectMapper = new ObjectMapper();
+    private ObjectMapper objectMapper = new ObjectMapper();
 
     @Before
     public void setup(){
