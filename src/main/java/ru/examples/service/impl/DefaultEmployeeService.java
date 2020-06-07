@@ -41,6 +41,7 @@ public class DefaultEmployeeService implements IEntityService<EmployeeJpa> {
             throw new EntityIllegalArgumentException(String.format("Не удалось преобразовать идентификатор" +
                     "к нужному типу. Текст ошибки: %s", ex));
         }
+
         employee = employeeJpaRepository.findById(parsedId);
         if (!employee.isPresent()){
             throw new EntityNotFoundException(EmployeeJpa.TYPE_NAME, parsedId);
