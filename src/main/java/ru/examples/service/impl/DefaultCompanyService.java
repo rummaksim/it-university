@@ -2,6 +2,7 @@ package ru.examples.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ru.examples.annotation.Loggable;
 import ru.examples.exceptions.EntityAlreadyExistsException;
 import ru.examples.exceptions.EntityHasDetailsException;
 import ru.examples.exceptions.EntityIllegalArgumentException;
