@@ -1,5 +1,7 @@
 package ru.examples.service;
 
+import ru.examples.annotation.Loggable;
+
 import java.util.List;
 
 public interface IEntityService<T> {
